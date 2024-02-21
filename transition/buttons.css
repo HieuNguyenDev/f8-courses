@@ -55,3 +55,45 @@ button {
     position: relative;
     z-index: 1;
 }
+
+.text {
+    position: relative;
+    font-size: 4rem;
+}
+
+.text::before {
+    content: attr(data-text);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 0;
+    color: orange;
+    overflow: hidden;
+    transition: height 1s;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.text:hover::before {
+    justify-content: flex-start;
+    top: 0;
+    height: 100%;
+}
+
+/* Long text */
+.long-text {
+    position: relative;
+}
+
+.long-text::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    white-space: nowrap;
+    color: orange;
+    background: green;
+}
